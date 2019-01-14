@@ -33,14 +33,18 @@ const mdFiles = fs
   });
 
 const createPage = (mdFile) => {
+  // Convert markdown content to HTML
   const content = marked(mdFile.content);
   console.log(`Building makdown file: ${mdFile.name}.md...`)
 
-  return new HtmlWebpackPlugin({
-    template: path.join(srcDir, 'template.html'),
-    hash: true,
+  return new HtmlWebpackPlugin(/*options:*/{
+    // Standard options found in the documentation
+    // https://github.com/jantimon/html-webpack-plugin#options
     filename: path.join(outputDir, `${mdFile.name}.html`),
+    template: path.join(srcDir, 'template.html'),
     title: content.meta.title,
+    // This is an arbitrary extention to the options object
+    // used to inject the converted markdown content.
     content: content.html
   });
 };
@@ -55,12 +59,13 @@ module.exports = {
   },
   module: {
     rules: [
-
+      // All of your bundle loaders should go here...
     ]
   },
   plugins: [
     // Spread the returned HtmlWebpackPlugin config
     // objects into the plugins array.
+    // You can pass as many as you want.
     ...mdFiles.map(mdFile => createPage(mdFile))
   ]
 };
