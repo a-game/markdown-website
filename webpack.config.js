@@ -43,7 +43,7 @@ const createPage = (mdFile) => {
     filename: path.join(outputDir, `${mdFile.name}.html`),
     template: path.join(srcDir, 'template.html'),
     title: content.meta.title,
-    // This is an arbitrary extention to the options object
+    // This is an arbitrary extension to the options object
     // used to inject the converted markdown content.
     content: content.html
   });
