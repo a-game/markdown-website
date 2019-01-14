@@ -1,0 +1,22 @@
+{
+  "name": "markdown_website",
+  "version": "0.1.0",
+  "description": "How to make a static website using markdown.",
+  "author": {
+    "name": "Ahmad Game",
+    "email": "me@ahmadgame.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "file-system": "^2.2.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "meta-marked": "^0.4.2",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "highlight.js": "^9.13.1"
+  },
+  "scripts": {
+    "dev": "webpack --mode=development"
+  }
+}
